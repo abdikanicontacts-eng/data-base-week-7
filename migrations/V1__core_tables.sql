@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS students (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    customer_id INTEGER,
+    amount NUMERIC(10,2),
+    status TEXT,
+    created_at TIMESTAMPTZ DEFAULT now()
+);
